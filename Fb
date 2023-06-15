@@ -1,0 +1,13 @@
+from facebook_scraper import get_posts
+import facebook
+
+# Login to Facebook 
+graph = facebook.GraphAPI(access_token)  
+
+# Get posts from your Facebook page
+posts = get_posts('facebook page URL', pages=1)  
+
+# Share each post
+for post in posts:
+    graph.put_object(parent_object='me', connection_name='feed', 
+    message=post['text'])
